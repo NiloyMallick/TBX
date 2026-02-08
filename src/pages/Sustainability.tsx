@@ -2,11 +2,11 @@ import { Leaf, Heart, Globe, Award } from 'lucide-react';
 
 // Using extracted logos for certifications
 const certLogos = [
-  '/src/assets/certifications/h0u3r1s22k.pdf-0-0.png',
-  '/src/assets/certifications/h0u3r1s22k.pdf-1-0.png',
-  '/src/assets/certifications/h0u3r1s22k.pdf-2-0.png',
-  '/src/assets/certifications/h0u3r1s22k.pdf-3-0.png',
-  '/src/assets/certifications/h0u3r1s22k.pdf-4-0.png',
+  '/src/assets/certifications/1.jpg',
+  '/src/assets/certifications/2.jpg',
+  '/src/assets/certifications/3.jpg',
+  '/src/assets/certifications/4.jpg',
+  '/src/assets/certifications/5.jpg',
 ];
 
 const Sustainability = () => {

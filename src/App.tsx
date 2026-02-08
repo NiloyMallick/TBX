@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import "./index.css";
 import MainLayout from "./layouts/MainLayout";
 import AAFashion from "./pages/AAFashion";
 import ARSPrinting from "./pages/ARSPrinting";
