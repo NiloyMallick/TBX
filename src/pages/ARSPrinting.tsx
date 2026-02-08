@@ -5,17 +5,31 @@ import arifHossen from '../assets/arif-hossen.jpeg';
 
 // Using extracted logos for clients and certifications
 const clientLogos = [
-  '/src/assets/logos/yx9c2nwi4n.pdf-0-0.png',
-  '/src/assets/logos/yx9c2nwi4n.pdf-1-0.png',
-  '/src/assets/logos/yx9c2nwi4n.pdf-2-0.png',
-  '/src/assets/logos/yx9c2nwi4n.pdf-3-0.png',
+  '/src/assets/logos/1.png',
+  '/src/assets/logos/2.png',
+  '/src/assets/logos/3.png',
+  '/src/assets/logos/4.png',
+  '/src/assets/logos/5.png',
+  '/src/assets/logos/6.png',
+  '/src/assets/logos/7.png',
+  '/src/assets/logos/8.png',
+  '/src/assets/logos/9.png',
+  '/src/assets/logos/10.png',
+  '/src/assets/logos/11.png',
+  '/src/assets/logos/12.png',
 ];
 
 const certLogos = [
-  '/src/assets/certifications/h0u3r1s22k.pdf-0-0.png',
-  '/src/assets/certifications/h0u3r1s22k.pdf-1-0.png',
-  '/src/assets/certifications/h0u3r1s22k.pdf-2-0.png',
-  '/src/assets/certifications/h0u3r1s22k.pdf-3-0.png',
+  '/src/assets/certifications/1.png',
+  '/src/assets/certifications/2.png',
+  '/src/assets/certifications/3.png',
+  '/src/assets/certifications/4.png',
+  '/src/assets/certifications/5.png',
+  '/src/assets/certifications/6.png',
+  '/src/assets/certifications/7.png',
+  '/src/assets/certifications/8.png',
+  '/src/assets/certifications/9.png',
+  '/src/assets/certifications/10.png',
 ];
 
 const ARSPrinting = () => {

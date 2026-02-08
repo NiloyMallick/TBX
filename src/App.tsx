@@ -11,7 +11,20 @@ import Contact from './pages/Contact';
 
 function App() {
   return (
-    <h1 className="text-3xl font-bold text-center mt-20">Welcome to TBX Group</h1>
+    <Router>
+      <MainLayout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/tbx-sourcing" element={<TBXSourcing />} />
+          <Route path="/tbx-sourcing/products" element={<TBXProducts />} />
+          <Route path="/ars-printing" element={<ARSPrinting />} />
+          <Route path="/aa-fashion" element={<AAFashion />} />
+          <Route path="/sustainability" element={<Sustainability />} />
+          <Route path="/career" element={<Career />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </MainLayout>
+    </Router>
   );
 }
 

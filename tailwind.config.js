@@ -1,12 +1,10 @@
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
+import React from "react"; // optional if using react-jsx
+import { createRoot } from "react-dom/client";
+import "./index.css";       // this must be correct path
+import App from "./App";
 
+createRoot(document.getElementById("root")!).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
