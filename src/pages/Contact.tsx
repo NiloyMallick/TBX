@@ -52,7 +52,7 @@ const Contact = () => {
                     <MapPin className="h-6 w-6 text-red-600" />
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-bold text-slate-900">Gazipur Office</h3>
+                    <h3 className="text-lg font-bold text-slate-900">Regional Office</h3>
                     <p className="mt-1 text-gray-600">
                       G-151 West Rajdighirpar<br />
                       Joydebpur, Gazipur- 1700<br />

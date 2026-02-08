@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import joySarker from '../assets/joy-sarker.png';
 import sadekuzzaman from '../assets/sadekuzzaman.jpeg';
 import arifHossen from '../assets/arif-hossen.jpeg';
+import riyadHossen from '../assets/riyad-hossen.jpeg';
+
 
 // Import extracted logos (using the paths returned by pdf_convert)
 // Note: In a real scenario, we'd rename these for clarity.
@@ -30,8 +32,14 @@ const certLogos = [
 const Home = () => {
   const boardMembers = [
     { name: 'Joy Sarker', role: 'President', image: joySarker },
+    // { name: 'Sadekuzzaman', role: 'Director', image: sadekuzzaman },
+    // { name: 'Arif Hossen', role: 'Director', image: arifHossen },
+    // { name: 'Riyad Hossen', role: 'Director', image: riyadHossen },
+  ];
+  const boardMembers1 = [
     { name: 'Sadekuzzaman', role: 'Director', image: sadekuzzaman },
     { name: 'Arif Hossen', role: 'Director', image: arifHossen },
+    { name: 'Riyad Hossen', role: 'Director', image: riyadHossen },
   ];
 
   const slides = [
@@ -271,8 +279,25 @@ const Home = () => {
             <p className="mt-4 text-xl text-gray-600">Leading with vision and integrity</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
-            {boardMembers.map((member) => (
+          <div className="justify-items-center mx-auto">
+              {boardMembers.map((member) => (
+                <div key={member.name} className="flex flex-col items-center group">
+                  <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-white shadow-lg mb-6 relative">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="text-center">
+                    <h3 className="text-lg font-bold text-slate-900">{member.name}</h3>
+                    <p className="text-red-600 font-medium">{member.role}</p>
+                  </div>
+                </div>
+              ))}
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 place-items-center">
+            {boardMembers1.map((member) => (
               <div key={member.name} className="flex flex-col items-center group">
                 <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-white shadow-lg mb-6 relative">
                   <img 
