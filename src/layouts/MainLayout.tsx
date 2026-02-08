@@ -1,17 +1,13 @@
-import { ReactNode } from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import { Outlet } from "react-router-dom";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 
-interface MainLayoutProps {
-  children: ReactNode;
-}
-
-const MainLayout = ({ children }: MainLayoutProps) => {
+const MainLayout = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <main className="flex-grow pt-20">
-        {children}
+        <Outlet />
       </main>
       <Footer />
     </div>

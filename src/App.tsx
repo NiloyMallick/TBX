@@ -1,17 +1,32 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import MainLayout from './layouts/MainLayout';
-import Home from './pages/Home';
-import TBXSourcing from './pages/TBXSourcing';
-import TBXProducts from './pages/TBXProducts';
-import ARSPrinting from './pages/ARSPrinting';
-import AAFashion from './pages/AAFashion';
-import Sustainability from './pages/Sustainability';
-import Career from './pages/Career';
-import Contact from './pages/Contact';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import "./index.css";
+import MainLayout from "./layouts/MainLayout";
+import AAFashion from "./pages/AAFashion";
+import ARSPrinting from "./pages/ARSPrinting";
+import Career from "./pages/Career";
+import Contact from "./pages/Contact";
+import Home from "./pages/Home";
+import Sustainability from "./pages/Sustainability";
+import TBXProducts from "./pages/TBXProducts";
+import TBXSourcing from "./pages/TBXSourcing";
 
 function App() {
   return (
-    <h1 className="text-3xl font-bold text-center mt-20">Welcome to TBX Group</h1>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<Home />} />
+          <Route path="tbx-sourcing" element={<TBXSourcing />} />
+          <Route path="tbx-products" element={<TBXProducts />} />
+          <Route path="ars-printing" element={<ARSPrinting />} />
+          <Route path="aa-fashion" element={<AAFashion />} />
+          <Route path="sustainability" element={<Sustainability />} />
+          <Route path="career" element={<Career />} />
+          <Route path="contact" element={<Contact />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
