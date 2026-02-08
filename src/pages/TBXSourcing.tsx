@@ -6,15 +6,14 @@ import joySarker from '../assets/joy-sarker.png';
 
 // Using extracted logos for clients
 const clientLogos = [
-  '/src/assets/logos/yx9c2nwi4n.pdf-0-0.png',
-  '/src/assets/logos/yx9c2nwi4n.pdf-1-0.png',
-  '/src/assets/logos/yx9c2nwi4n.pdf-2-0.png',
-  '/src/assets/logos/yx9c2nwi4n.pdf-3-0.png',
-  '/src/assets/logos/yx9c2nwi4n.pdf-4-0.png',
-  '/src/assets/logos/yx9c2nwi4n.pdf-5-0.png',
-  '/src/assets/logos/yx9c2nwi4n.pdf-6-0.png',
-  '/src/assets/logos/yx9c2nwi4n.pdf-7-0.png',
-  '/src/assets/logos/yx9c2nwi4n.pdf-8-0.png',
+  '/src/assets/logos/1.png',
+  '/src/assets/logos/2.png',
+  '/src/assets/logos/3.png',
+  '/src/assets/logos/4.png',
+  '/src/assets/logos/5.png',
+  '/src/assets/logos/6.png',
+  '/src/assets/logos/7.png',
+  '/src/assets/logos/8.png',
 ];
 
 const TBXSourcing = () => {
