@@ -1,12 +1,19 @@
 import { Leaf, Heart, Globe, Award } from 'lucide-react';
 
+// Import certification logos
+import cert1 from '../assets/certifications/1.jpg';
+import cert2 from '../assets/certifications/2.jpg';
+import cert3 from '../assets/certifications/3.jpg';
+import cert4 from '../assets/certifications/4.jpg';
+import cert5 from '../assets/certifications/5.jpg';
+
 // Using extracted logos for certifications
 const certLogos = [
-  '/src/assets/certifications/1.jpg',
-  '/src/assets/certifications/2.jpg',
-  '/src/assets/certifications/3.jpg',
-  '/src/assets/certifications/4.jpg',
-  '/src/assets/certifications/5.jpg',
+  cert1,
+  cert2,
+  cert3,
+  cert4,
+  cert5,
 ];
 
 const Sustainability = () => {

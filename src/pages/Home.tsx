@@ -5,28 +5,44 @@ import joySarker from '../assets/joy-sarker.png';
 import sadekuzzaman from '../assets/sadekuzzaman.jpeg';
 import arifHossen from '../assets/arif-hossen.jpeg';
 import riyadHossen from '../assets/riyad-hossen.jpeg';
+import slide1 from '../assets/slide-hoaver1.jpeg';
+// Import client logos
+import logo1 from '../assets/logos/1.png';
+import logo2 from '../assets/logos/2.png';
+import logo3 from '../assets/logos/3.png';
+import logo4 from '../assets/logos/4.png';
+import logo5 from '../assets/logos/5.png';
+import logo6 from '../assets/logos/6.png';
+import logo7 from '../assets/logos/7.png';
+import logo8 from '../assets/logos/8.png';
+import logo10 from '../assets/logos/10.png';
+import logo11 from '../assets/logos/11.jpeg';
+import logo12 from '../assets/logos/12.jpeg';
+import logo13 from '../assets/logos/13.jpeg';
+
+// Import certification logos
+import cert1 from '../assets/certifications/1.jpg';
+import cert2 from '../assets/certifications/2.jpg';
+import cert3 from '../assets/certifications/3.jpg';
+import cert4 from '../assets/certifications/4.jpg';
+import cert5 from '../assets/certifications/5.jpg';
 
 
 // Import extracted logos (using the paths returned by pdf_convert)
 // Note: In a real scenario, we'd rename these for clarity.
 const clientLogos = [
-  '/src/assets/logos/1.png',
-  '/src/assets/logos/2.png',
-  '/src/assets/logos/3.png',
-  '/src/assets/logos/4.png',
-  '/src/assets/logos/5.png',
-  '/src/assets/logos/6.png',
-  '/src/assets/logos/7.png',
-  '/src/assets/logos/8.png',
-  '/src/assets/logos/9.png',
-];
-
-const certLogos = [
-  '/src/assets/certifications/1.jpg',
-  '/src/assets/certifications/2.jpg',
-  '/src/assets/certifications/3.jpg',
-  '/src/assets/certifications/4.jpg',
-  '/src/assets/certifications/5.jpg',
+  logo1,
+  logo2,
+  logo3,
+  logo4,
+  logo5,
+  logo6,
+  logo7,
+  logo8,
+  logo10,
+  logo11,
+  logo12,
+  logo13,
 ];
 
 const Home = () => {
@@ -49,7 +65,7 @@ const Home = () => {
       subtitle: "A vertically integrated apparel sourcing and supply chain group delivering excellence to the global fashion industry."
     },
     {
-      image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=1600",
+      image: "https://www.allnewbusiness.com/wp-content/uploads/200-Catchy-Clothing-Brand-Name-Ideas.jpeg?auto=format&fit=crop&q=80&w=1600",
       title: "Excellence in Manufacturing",
       subtitle: "State-of-the-art facilities ensuring quality and precision in every stitch."
     },
@@ -60,12 +76,26 @@ const Home = () => {
     }
   ];
 
+  const certSlides = [
+    [cert1, cert2, cert3],
+    [cert3, cert4, cert5],
+    [cert5, cert1, cert2],
+  ];
+
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentCertSlide, setCurrentCertSlide] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentCertSlide((prev) => (prev + 1) % certSlides.length);
+    }, 4000);
     return () => clearInterval(timer);
   }, []);
 
@@ -332,14 +362,23 @@ const Home = () => {
       </section>
 
       {/* Certifications Slider */}
-      <section className="py-16 bg-slate-50 overflow-hidden">
+      <section className="py-16 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
           <h2 className="text-2xl font-bold text-center text-slate-900">Our Certifications</h2>
         </div>
-        <div className="flex space-x-12 animate-scroll-reverse">
-          {[...certLogos, ...certLogos].map((logo, index) => (
-            <div key={index} className="flex-shrink-0 w-32 h-20 flex items-center justify-center">
-              <img src={logo} alt="Certification Logo" className="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity" />
+        <div className="relative h-20 flex justify-center">
+          {certSlides.map((slide, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 flex justify-center space-x-12 transition-opacity duration-1000 ease-in-out ${
+                index === currentCertSlide ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              {slide.map((logo, logoIndex) => (
+                <div key={logoIndex} className="flex-shrink-0 w-32 h-20 flex items-center justify-center">
+                  <img src={logo} alt="Certification Logo" className="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity" />
+                </div>
+              ))}
             </div>
           ))}
         </div>

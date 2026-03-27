@@ -3,6 +3,11 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import clsx from 'clsx';
 
+// Company images
+const tbxImage = 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=400';
+const arsImage = 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=400';
+const aaImage = 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&q=80&w=400';
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -19,9 +24,24 @@ const Navbar = () => {
   ];
 
   const companyLinks = [
-    { name: 'TBX Sourcing Ltd', path: '/tbx-sourcing' },
-    { name: 'ARS ACC. & Printing', path: '/ars-printing' },
-    { name: 'A&A Fashion & Fabrics', path: '/aa-fashion' },
+    {
+      name: 'TBX Sourcing Ltd',
+      path: '/tbx-sourcing',
+      image: tbxImage,
+      description: 'Comprehensive apparel sourcing solutions'
+    },
+    {
+      name: 'ARS ACC. & Printing',
+      path: '/ars-printing',
+      image: arsImage,
+      description: 'Premium trims and printing accessories'
+    },
+    {
+      name: 'A&A Fashion & Fabrics',
+      path: '/aa-fashion',
+      image: aaImage,
+      description: 'Knit fabrics and textile solutions'
+    },
   ];
 
   return (
@@ -67,18 +87,32 @@ const Navbar = () => {
               </button>
               
               <div 
-                className="absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-left"
+                className="absolute left-0 mt-2 w-80 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-left z-50"
                 onMouseLeave={() => setIsDropdownOpen(false)}
               >
-                <div className="py-1" role="menu">
+                <div className="p-3 space-y-2" role="menu">
                   {companyLinks.map((link) => (
                     <Link
                       key={link.name}
                       to={link.path}
-                      className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-red-600"
+                      className="flex items-center p-3 rounded-md hover:bg-slate-50 transition-colors duration-200 group/card"
                       role="menuitem"
                     >
-                      {link.name}
+                      <div className="w-20 h-20 rounded-md overflow-hidden flex-shrink-0 mr-3">
+                        <img
+                          src={link.image}
+                          alt={link.name}
+                          className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-semibold text-slate-900 text-sm group-hover/card:text-red-600 transition-colors">
+                          {link.name}
+                        </h3>
+                        <p className="text-xs text-slate-600 mt-1">
+                          {link.description}
+                        </p>
+                      </div>
                     </Link>
                   ))}
                 </div>

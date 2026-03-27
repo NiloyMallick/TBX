@@ -1,24 +1,61 @@
+import { useState, useEffect } from 'react';
 import { Printer, Package, CheckCircle, Users, Award, Globe, Mail, Phone, MapPin } from 'lucide-react';
-import { Link } from 'react-scroll';
+import { Link } from 'react-router-dom';
 import riyadHossen from '../assets/riyad-hossen.jpeg';
 import arifHossen from '../assets/arif-hossen.jpeg';
 
+// Import client logos
+import logo1 from '../assets/logos/1.png';
+import logo2 from '../assets/logos/2.png';
+import logo3 from '../assets/logos/3.png';
+import logo4 from '../assets/logos/4.png';
+
+// Import certification logos
+import cert1 from '../assets/certifications/1.jpg';
+import cert2 from '../assets/certifications/2.jpg';
+import cert3 from '../assets/certifications/3.jpg';
+import cert4 from '../assets/certifications/4.jpg';
+
 // Using extracted logos for clients and certifications
 const clientLogos = [
-  '/src/assets/logos/1.png',
-  '/src/assets/logos/2.png',
-  '/src/assets/logos/3.png',
-  '/src/assets/logos/4.png',
+  logo1,
+  logo2,
+  logo3,
+  logo4,
 ];
 
 const certLogos = [
-  '/src/assets/certifications/1.jpg',
-  '/src/assets/certifications/2.jpg',
-  '/src/assets/certifications/3.jpg',
-  '/src/assets/certifications/4.jpg',
+  cert1,
+  cert2,
+  cert3,
+  cert4,
+];
+
+const clientSlides = [
+  [logo1, logo2, logo3, logo4],
+];
+
+const certSlides = [
+  [cert1, cert2, cert3, cert4],
 ];
 
 const ARSPrinting = () => {
+  const [currentClientSlide, setCurrentClientSlide] = useState(0);
+  const [currentCertSlide, setCurrentCertSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentClientSlide((prev) => (prev + 1) % clientSlides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentCertSlide((prev) => (prev + 1) % certSlides.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
   const sections = [
     { id: 'overview', name: 'Overview & Goals' },
     { id: 'management', name: 'Management' },
@@ -28,13 +65,49 @@ const ARSPrinting = () => {
     { id: 'contact', name: 'Contact' },
   ];
 
-  const products = [
-    { name: 'Paper & Printing', items: ['Adhesive Sticker', 'Heat Seal', 'Hang Tag'] },
-    { name: 'Tape & Cord', items: ['Twill Tape', 'Bungee Cord', 'Weaving Belt', 'Ribbed Tape', 'Drawstring'] },
-    { name: 'Button', items: ['Horn Button', 'Wooden Button', 'Shell Button', 'Fabric Button', 'Metal Button', 'Rivet Button', 'Coconut Button', 'Shank Button'] },
-    { name: 'Label', items: ['Screen Print Label', 'Paper Label', 'Woven Label', 'Satin Label'] },
-    { name: 'Handicraft', items: ['Tassel', 'Bow', 'Flowers', 'Pompom'] },
-    { name: 'Others', items: ['Lock String', 'Metal Badge', 'Rubber Badge', 'Buckle', 'D Ring', 'Eyelets', 'Gromet', 'Leather Badge', 'Stopper'] },
+  const productCategories = [
+    {
+      id: 'paper',
+      name: 'Paper & Printing',
+      description: 'High-quality paper products and printing materials',
+      image: 'https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&q=80&w=600',
+      items: ['Adhesive Sticker', 'Heat Seal', 'Hang Tag']
+    },
+    {
+      id: 'tape',
+      name: 'Tape & Cord',
+      description: 'Specialized tapes and cords for various applications',
+      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&q=80&w=600',
+      items: ['Twill Tape', 'Bungee Cord', 'Weaving Belt', 'Ribbed Tape', 'Drawstring']
+    },
+    {
+      id: 'button',
+      name: 'Button',
+      description: 'Wide variety of buttons for garment decoration and function',
+      image: 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&q=80&w=600',
+      items: ['Horn Button', 'Wooden Button', 'Shell Button', 'Fabric Button', 'Metal Button', 'Rivet Button', 'Coconut Button', 'Shank Button']
+    },
+    {
+      id: 'label',
+      name: 'Label',
+      description: 'Various types of labels for garment identification and branding',
+      image: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?auto=format&fit=crop&q=80&w=600',
+      items: ['Screen Print Label', 'Paper Label', 'Woven Label', 'Satin Label']
+    },
+    {
+      id: 'handicraft',
+      name: 'Handicraft',
+      description: 'Artisanal handicraft items for garment decoration',
+      image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&q=80&w=600',
+      items: ['Tassel', 'Bow', 'Flowers', 'Pompom']
+    },
+    {
+      id: 'others',
+      name: 'Others',
+      description: 'Additional accessories and components for garments',
+      image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=80&w=600',
+      items: ['Lock String', 'Metal Badge', 'Rubber Badge', 'Buckle', 'D Ring', 'Eyelets', 'Gromet', 'Leather Badge', 'Stopper']
+    }
   ];
 
   return (
@@ -91,8 +164,12 @@ const ARSPrinting = () => {
                 </li>
               </ul>
             </div>
-            <div className="relative h-80 rounded-lg overflow-hidden shadow-xl bg-gray-100 flex items-center justify-center">
-              <Printer className="h-32 w-32 text-gray-300" />
+            <div className="relative h-96 rounded-lg overflow-hidden shadow-xl">
+              <img 
+                src="https://trimtex-bd.com/wp-content/uploads/2024/06/Leading-Garment-Accessories-Bangladesh-5.png?auto=format&fit=crop&q=80&w=1000" 
+                alt="Factory Floor" 
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>
@@ -131,56 +208,78 @@ const ARSPrinting = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">Our Products</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {products.map((category) => (
-              <div key={category.name} className="p-6 border border-gray-100 rounded-lg hover:shadow-lg transition-shadow">
-                <h3 className="text-lg font-bold text-slate-900 mb-4 border-b pb-2">{category.name}</h3>
-                <div className="flex flex-wrap gap-2">
-                  {category.items.map((item) => (
-                    <span key={item} className="text-sm text-gray-600 bg-gray-50 px-2 py-1 rounded">
-                      {item}
-                    </span>
-                  ))}
+            {productCategories.map((category) => (
+              <Link key={category.id} to={`/ars-printing/${category.id}`} className="block">
+                <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 group border border-gray-200">
+                  <div className="aspect-w-16 aspect-h-9 h-48 overflow-hidden relative">
+                    <img
+                      src={category.image}
+                      alt={category.name}
+                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-slate-900 mb-2">{category.name}</h3>
+                    <p className="text-gray-600 mb-4 text-sm">{category.description}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {category.items.map((item) => (
+                        <span key={item} className="inline-block bg-slate-100 text-slate-700 text-xs px-2 py-1 rounded-full">
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Clients */}
-      <section className="py-16 bg-slate-50" id="clients">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-slate-900 mb-12">Our Clients</h2>
-          <div className="flex flex-wrap justify-center gap-8">
-            {['H&M', 'Wal-Mart', 'Li & Fung', 'Adidas', 'Levis', 'VF Asia', 'Nike', 'GAP', 'Tesco', 'C&A', 'Target', 'ASDA', 'Next', 'Zara', 'Old Navy', 'PVH', 'S. Oliver', 'Puma', 'K-mart', 'M&S'].map((client) => (
-              <span key={client} className="text-lg font-medium text-gray-500">{client}</span>
-            ))}
-          </div>
-          <div className="mt-8 flex space-x-8 overflow-x-auto pb-4 justify-center">
-             {clientLogos.map((logo, index) => (
-                <img key={index} src={logo} alt="Client" className="h-16 object-contain opacity-70" />
-             ))}
-          </div>
+      {/* Clients Slider */}
+      <section className="py-16 bg-white" id="clients">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+          <h2 className="text-2xl font-bold text-center text-slate-900">Our Clients</h2>
+        </div>
+        <div className="relative h-20 flex justify-center">
+          {clientSlides.map((slide, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 flex justify-center space-x-12 transition-opacity duration-1000 ease-in-out ${
+                index === currentClientSlide ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              {slide.map((logo, logoIndex) => (
+                <div key={logoIndex} className="flex-shrink-0 w-32 h-20 flex items-center justify-center">
+                  <img src={logo} alt="Client Logo" className="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity" />
+                </div>
+              ))}
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Certifications */}
-      <section className="py-16 bg-white" id="certifications">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-slate-900 mb-12">Certifications</h2>
-          <div className="flex flex-wrap justify-center gap-8">
-            {['OEKO-TEX® Standard 100', 'ISO 9001:2015', 'Global Recycled Standard (GRS)', 'FSC®'].map((cert) => (
-              <div key={cert} className="flex flex-col items-center">
-                <Award className="h-12 w-12 text-red-600 mb-2" />
-                <span className="text-sm font-medium text-gray-700">{cert}</span>
-              </div>
-            ))}
-          </div>
-           <div className="mt-8 flex space-x-8 overflow-x-auto pb-4 justify-center">
-             {certLogos.map((logo, index) => (
-                <img key={index} src={logo} alt="Certification" className="h-16 object-contain opacity-70" />
-             ))}
-          </div>
+      {/* Certifications Slider */}
+      <section className="py-16 bg-slate-50" id="certifications">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+          <h2 className="text-2xl font-bold text-center text-slate-900">Our Certifications</h2>
+        </div>
+        <div className="relative h-20 flex justify-center">
+          {certSlides.map((slide, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 flex justify-center space-x-12 transition-opacity duration-1000 ease-in-out ${
+                index === currentCertSlide ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              {slide.map((logo, logoIndex) => (
+                <div key={logoIndex} className="flex-shrink-0 w-32 h-20 flex items-center justify-center">
+                  <img src={logo} alt="Certification Logo" className="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity" />
+                </div>
+              ))}
+            </div>
+          ))}
         </div>
       </section>
 

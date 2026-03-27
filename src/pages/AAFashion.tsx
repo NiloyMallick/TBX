@@ -1,9 +1,26 @@
+import { useState, useEffect } from 'react';
 import { Scissors, Shirt, CheckCircle, Users, Award, Globe, Mail, Phone, MapPin, Factory } from 'lucide-react';
-import { Link } from 'react-scroll';
+import { Link } from 'react-router-dom';
 import sadekuzzaman from '../assets/sadekuzzaman.jpeg';
 import soniaAfrin from '../assets/sonia-afrin.jpeg';
 
 const AAFashion = () => {
+  const slides = [
+    'https://lh3.googleusercontent.com/-XcE0tc-R2EI/VaQaNaQveaI/AAAAAAAAYgY/4yefm25pETk/s660-Ic42/Garment-Labels-Australia_159702_29428_image.jpg',
+    'https://trimtex-bd.com/wp-content/uploads/elementor/thumbs/Hang-Tag-28-riwsf2bpz6xth809niegixz5s1b23dq9c37k7uy10g.webp',
+    'https://etienter.com/wp-content/uploads/2022/04/draw-cord-500x500-1-300x300.jpg',
+    'https://i0.wp.com/textileengineering.net/wp-content/uploads/2024/01/types-of-buttons.jpg?fit=600%2C400&ssl=1'
+  ];
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [slides.length]);
+
   const sections = [
     { id: 'overview', name: 'Overview' },
     { id: 'management', name: 'Management' },
@@ -17,8 +34,15 @@ const AAFashion = () => {
   return (
     <div className="flex flex-col">
       {/* Hero */}
-      <section className="bg-slate-900 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section 
+        className="bg-slate-900 text-white py-20 relative bg-cover bg-center bg-no-repeat transition-opacity duration-1000"
+        style={{
+          backgroundImage: `url(${slides[currentSlide]})`,
+          backgroundAttachment: 'fixed'
+        }}
+      >
+        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h1 className="text-4xl font-bold mb-4">A&A Fashion & Fabrics</h1>
           <p className="text-xl text-gray-300">Leading 100% Export-Oriented Knit Fabrics Manufacturer</p>
         </div>
@@ -65,8 +89,12 @@ const AAFashion = () => {
                 <p className="text-gray-600">To deliver high-quality fabrics that meet global standards, maintain ethical practices, invest in technology, and build long-term partnerships.</p>
               </div>
             </div>
-            <div className="relative h-96 rounded-lg overflow-hidden shadow-xl bg-gray-100 flex items-center justify-center">
-              <Scissors className="h-32 w-32 text-gray-300" />
+            <div className="relative h-96 rounded-lg overflow-hidden shadow-xl">
+              <img 
+                src="https://cdn.shopify.com/s/files/1/0520/8893/0456/files/cr_w_1200_h_600_ec1defb5-63f7-4b58-bf03-8736d6e61a61.jpg?v=1613959526?auto=format&fit=crop&q=80&w=1000" 
+                alt="Factory Floor" 
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>
@@ -100,39 +128,66 @@ const AAFashion = () => {
         </div>
       </section>
 
-      {/* Product Range */}
+      {/* Product Categories */}
       <section className="py-16 bg-white" id="products">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">Product Range</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">Product Categories</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
-              'Single Jersey, Rib & Interlock',
-              'Fleece (1-thread, 2 thread, 3-thread)',
-              'Lycra & Spandex Fabrics',
-              'Pique & Lacoste',
-              'French Terry',
-              'Waffle',
-              'Cable Knit',
-              'Drop Needle',
-              'Pointelle',
-              'Scuba',
-              'Ottoman Knit',
-              'Honeycomb Knit',
-              'Mélange Fabrics',
-              'Cotton-Modal fabrics',
-              'Indigo dyed fabric',
-              'Auto Stripes & Engineered Stripes',
-              'Jacquard Knit Fabrics',
-              'All Over Printed (AOP) Fabrics',
-              'Polyester Fabrics (mesh, jersey, interlock)'
-            ].map((item) => (
-              <div key={item} className="flex items-center p-4 bg-slate-50 rounded-lg">
-                <Shirt className="h-5 w-5 text-red-600 mr-3" />
-                <span className="text-gray-700 font-medium">{item}</span>
-              </div>
+              {
+                id: 'basic',
+                name: 'Basic Knit Fabrics',
+                description: 'Essential knitted fabrics including Single Jersey, Rib, and Interlock',
+                image: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&q=80&w=600',
+                items: ['Single Jersey', 'Rib & Interlock', 'Plain Fabrics']
+              },
+              {
+                id: 'specialty',
+                name: 'Specialty Fabrics',
+                description: 'Advanced fabrics with special properties and intricate designs',
+                image: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&q=80&w=600',
+                items: ['Fleece (1-3 thread)', 'Lycra & Spandex', 'Pique & Lacoste', 'French Terry', 'Jacquard']
+              },
+              {
+                id: 'performance',
+                name: 'Performance Fabrics',
+                description: 'Technical fabrics designed for specific performance requirements',
+                image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=600',
+                items: ['Polyester Fabrics', 'Mesh Fabrics', 'Moisture-Wicking', 'Quick-Dry']
+              },
+              {
+                id: 'custom',
+                name: 'Custom Developed',
+                description: 'Bespoke fabrics developed according to customer specifications',
+                image: 'https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&q=80&w=600',
+                items: ['Mélange Fabrics', 'Engineered Stripes', 'All Over Print (AOP)', 'Custom Blends']
+              }
+            ].map((category) => (
+              <Link key={category.id} to={`/aa-fashion/${category.id}`} className="block">
+                <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 group border border-gray-200">
+                  <div className="aspect-w-16 aspect-h-9 h-48 overflow-hidden relative">
+                    <img
+                      src={category.image}
+                      alt={category.name}
+                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-slate-900 mb-2">{category.name}</h3>
+                    <p className="text-gray-600 mb-4 text-sm">{category.description}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {category.items.map((item) => (
+                        <span key={item} className="inline-block bg-slate-100 text-slate-700 text-xs px-2 py-1 rounded-full">
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </Link>
             ))}
           </div>
-          <p className="text-center mt-8 text-gray-600 italic">Also Custom developed knitted fabrics as per customers’ requirements</p>
         </div>
       </section>
 

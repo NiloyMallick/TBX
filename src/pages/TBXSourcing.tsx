@@ -4,16 +4,26 @@ import { Link } from 'react-router-dom';
 import drubaRanjanSarker from '../assets/druba-ranjan-sarker.png';
 import joySarker from '../assets/joy-sarker.png';
 
+// Import client logos
+import logo1 from '../assets/logos/1.png';
+import logo2 from '../assets/logos/2.png';
+import logo3 from '../assets/logos/3.png';
+import logo4 from '../assets/logos/4.png';
+import logo5 from '../assets/logos/5.png';
+import logo6 from '../assets/logos/6.png';
+import logo7 from '../assets/logos/7.png';
+import logo8 from '../assets/logos/8.png';
+
 // Using extracted logos for clients
 const clientLogos = [
-  '/src/assets/logos/1.png',
-  '/src/assets/logos/2.png',
-  '/src/assets/logos/3.png',
-  '/src/assets/logos/4.png',
-  '/src/assets/logos/5.png',
-  '/src/assets/logos/6.png',
-  '/src/assets/logos/7.png',
-  '/src/assets/logos/8.png',
+  logo1,
+  logo2,
+  logo3,
+  logo4,
+  logo5,
+  logo6,
+  logo7,
+  logo8,
 ];
 
 const TBXSourcing = () => {
@@ -87,7 +97,7 @@ const TBXSourcing = () => {
             </div>
             <div className="relative h-96 rounded-lg overflow-hidden shadow-xl">
               <img 
-                src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&w=1000" 
+                src="https://www.allnewbusiness.com/wp-content/uploads/200-Catchy-Clothing-Brand-Name-Ideas.jpeg?auto=format&fit=crop&q=80&w=1000" 
                 alt="Factory Floor" 
                 className="w-full h-full object-cover"
               />
