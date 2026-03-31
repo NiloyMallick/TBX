@@ -42,6 +42,22 @@ const certSlides = [
 const ARSPrinting = () => {
   const [currentClientSlide, setCurrentClientSlide] = useState(0);
   const [currentCertSlide, setCurrentCertSlide] = useState(0);
+  const slides = [
+    'https://lh3.googleusercontent.com/-XcE0tc-R2EI/VaQaNaQveaI/AAAAAAAAYgY/4yefm25pETk/s660-Ic42/Garment-Labels-Australia_159702_29428_image.jpg',
+    'https://trimtex-bd.com/wp-content/uploads/elementor/thumbs/Hang-Tag-28-riwsf2bpz6xth809niegixz5s1b23dq9c37k7uy10g.webp',
+    'https://etienter.com/wp-content/uploads/2022/04/draw-cord-500x500-1-300x300.jpg',
+    'https://i0.wp.com/textileengineering.net/wp-content/uploads/2024/01/types-of-buttons.jpg?fit=600%2C400&ssl=1'
+  ];
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [slides.length]);
+
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -113,10 +129,17 @@ const ARSPrinting = () => {
   return (
     <div className="flex flex-col">
       {/* Hero */}
-      <section className="bg-slate-900 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl font-bold mb-4">ARS Printing Accessories</h1>
-          <p className="text-xl text-gray-300">Premium Packaging & Accessories Solutions</p>
+      <section 
+        className="relative h-[600px] bg-slate-900 text-white overflow-hidden group flex items-center justify-center"
+        style={{
+          backgroundImage: `url(${slides[currentSlide]})`,
+          backgroundAttachment: 'fixed'
+        }}
+      >
+        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h1 className="text-4xl font-bold mb-4">A&A Fashion & Fabrics</h1>
+          <p className="text-xl text-gray-300">Leading 100% Export-Oriented Knit Fabrics Manufacturer</p>
         </div>
       </section>
 

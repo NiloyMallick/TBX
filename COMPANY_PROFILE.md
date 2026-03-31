@@ -82,7 +82,7 @@ ARS Printing Accessories specializes in high-quality printing and packaging solu
 **Corporate Office:**
 House: 20, Road: 02, Uttara, Sector: 12, Dhaka-1230, Bangladesh
 
-**Regional Offices:**
+**Head Offices:**
 - **Dhaka:** Mothijhil, Dhaka
 - **Gazipur:** Joydebpur, Gazipur
 - **Dubai (UAE):** Jafza South, Free Zone

@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import drubaRanjanSarker from '../assets/druba-ranjan-sarker.png';
 import joySarker from '../assets/joy-sarker.png';
 
+// Import video
+import tbxSourcingVideo from '../assets/videos/tbx_sourcing.mp4';
+
 // Import client logos
 import logo1 from '../assets/logos/1.png';
 import logo2 from '../assets/logos/2.png';
@@ -41,8 +44,19 @@ const TBXSourcing = () => {
   return (
     <div className="flex flex-col">
       {/* Hero */}
-      <section className="bg-slate-900 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* <section className="relative text-white py-28 overflow-hidden"> */}
+      <section className="relative h-[600px] bg-slate-900 text-white overflow-hidden group flex items-center justify-center">
+        <video
+          className="absolute inset-0 w-full h-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
+          <source src={tbxSourcingVideo} type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h1 className="text-4xl font-bold mb-4">TBX Sourcing Ltd.</h1>
           <p className="text-xl text-gray-300">A Story Built on the Factory Floor</p>
         </div>
