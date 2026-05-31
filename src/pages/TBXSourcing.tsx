@@ -159,7 +159,7 @@ const TBXSourcing = () => {
               <h3 className="text-xl font-bold text-slate-900">S.M Rakib</h3>
               <p className="text-red-600 font-medium mt-1">Director</p>
               <p className="text-gray-500 mt-4 text-sm">
-                Driving innovation and global growth for TBX Group.
+                Spearheading innovation, strategic transformation, and international growth for TBX Group..
               </p>
             </div>
           </div>
