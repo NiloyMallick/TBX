@@ -3,6 +3,7 @@ import { Link as ScrollLink } from 'react-scroll';
 import { Link } from 'react-router-dom';
 import drubaRanjanSarker from '../assets/druba-ranjan-sarker.png';
 import joySarker from '../assets/joy-sarker.png';
+import smRakib from '../assets/rakib.jpeg';
 
 // Import video
 import tbxSourcingVideo from '../assets/videos/tbx_sourcing.mp4';
@@ -128,7 +129,7 @@ const TBXSourcing = () => {
             <div className="w-20 h-1 bg-red-600 mx-auto mt-4"></div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="bg-white p-8 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
               <div className="w-32 h-32 bg-gray-200 rounded-full mx-auto mb-6 overflow-hidden">
                 <img src={drubaRanjanSarker} alt="Chairman" className="w-full h-full object-cover object-top" />
@@ -139,13 +140,24 @@ const TBXSourcing = () => {
                 Visionary leader with decades of experience in the apparel industry.
               </p>
             </div>
-            
+
             <div className="bg-white p-8 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
               <div className="w-32 h-32 bg-gray-200 rounded-full mx-auto mb-6 overflow-hidden">
                 <img src={joySarker} alt="CEO" className="w-full h-full object-cover object-top" />
               </div>
               <h3 className="text-xl font-bold text-slate-900">Joy Sarker</h3>
               <p className="text-red-600 font-medium mt-1">CEO</p>
+              <p className="text-gray-500 mt-4 text-sm">
+                Driving innovation and global growth for TBX Group.
+              </p>
+            </div>
+            
+            <div className="bg-white p-8 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
+              <div className="w-32 h-32 bg-gray-200 rounded-full mx-auto mb-6 overflow-hidden">
+                <img src={smRakib} alt="Director" className="w-full h-full object-cover object-top" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900">S.M Rakib</h3>
+              <p className="text-red-600 font-medium mt-1">Director</p>
               <p className="text-gray-500 mt-4 text-sm">
                 Driving innovation and global growth for TBX Group.
               </p>
