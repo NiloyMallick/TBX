@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Scissors, Shirt, CheckCircle, Users, Award, Globe, Mail, Phone, MapPin, Factory } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
+import { Link as ScrollLink } from 'react-scroll';
 import sadekuzzaman from '../assets/sadekuzzaman.jpeg';
 import soniaAfrin from '../assets/sonia-afrin.jpeg';
 
@@ -53,7 +54,7 @@ const AAFashion = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex space-x-8 py-4 min-w-max">
             {sections.map((section) => (
-              <Link
+              <ScrollLink
                 key={section.id}
                 to={section.id}
                 smooth={true}
@@ -62,7 +63,7 @@ const AAFashion = () => {
                 className="text-sm font-medium text-gray-600 hover:text-red-600 cursor-pointer whitespace-nowrap"
               >
                 {section.name}
-              </Link>
+              </ScrollLink>
             ))}
           </div>
         </div>
@@ -163,7 +164,7 @@ const AAFashion = () => {
                 items: ['Mélange Fabrics', 'Engineered Stripes', 'All Over Print (AOP)', 'Custom Blends']
               }
             ].map((category) => (
-              <Link key={category.id} to={`/aa-fashion/${category.id}`} className="block">
+              <RouterLink key={category.id} to={`/aa-fashion/${category.id}`} className="block">
                 <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 group border border-gray-200">
                   <div className="aspect-w-16 aspect-h-9 h-48 overflow-hidden relative">
                     <img
@@ -185,7 +186,7 @@ const AAFashion = () => {
                     </div>
                   </div>
                 </div>
-              </Link>
+              </RouterLink>
             ))}
           </div>
         </div>

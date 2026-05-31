@@ -1,10 +1,33 @@
 import { ArrowLeft } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
 
+const pdfFiles = {
+  woven: new URL('../assets/woven.pdf', import.meta.url).href,
+  denim_non_denim: new URL('../assets/denim_non_denim.pdf', import.meta.url).href,
+  caps_and_hats: new URL('../assets/caps_and_hats.pdf', import.meta.url).href,
+
+
+};
+
+type ProductItem = {
+  id: number;
+  name: string;
+  description: string;
+  image: string;
+  price: string;
+};
+
+type ProductCategoryData = {
+  name: string;
+  description: string;
+  products: ProductItem[];
+  pdfUrl?: string;
+};
+
 const ProductCategory = () => {
   const { categoryId } = useParams();
 
-  const categoryData = {
+  const categoryData: Record<string, ProductCategoryData> = {
     knitted: {
       name: 'Knitted Garments',
       description: 'Comprehensive range of knitted apparel for all ages.',
@@ -54,8 +77,9 @@ const ProductCategory = () => {
       ]
     },
     woven: {
-      name: 'Woven Garments',
+      name: 'Woven And Outerwear Garments',
       description: 'High-quality woven clothing for casual and formal wear.',
+      pdfUrl: pdfFiles.woven,
       products: [
         {
           id: 1,
@@ -87,9 +111,10 @@ const ProductCategory = () => {
         }
       ]
     },
-    workwear: {
-      name: 'Workwear & Uniform',
+    denim_and_non_denim: {
+        name: 'Denim And Non-Denim',
       description: 'Durable and functional workwear for various industries.',
+      pdfUrl: pdfFiles.denim_non_denim,
       products: [
         {
           id: 1,
@@ -134,14 +159,15 @@ const ProductCategory = () => {
         }
       ]
     },
-    underwear: {
-      name: 'Underwear',
-      description: 'Comfortable and high-quality underwear and sleepwear.',
+    caps_and_hats: {
+      name: 'Caps And Hats',
+      description: 'Stylish and functional headwear for all occasions.',
+      pdfUrl: pdfFiles.caps_and_hats,
       products: [
         {
           id: 1,
-          name: 'Underwear Manufacturer',
-          description: 'High-quality underwear for everyday comfort',
+          name: 'Baseball Caps',
+          description: 'Classic baseball caps for sports and casual wear',
           image: 'https://images.unsplash.com/photo-1518459031867-a89b944bffe4?auto=format&fit=crop&q=80&w=600',
           price: 'Contact for pricing'
         },
@@ -156,7 +182,8 @@ const ProductCategory = () => {
     }
   };
 
-  const category = categoryData[categoryId];
+  const category = categoryId ? categoryData[categoryId as keyof typeof categoryData] : undefined;
+  const pdfUrl = category?.pdfUrl;
 
   if (!category) {
     return (
@@ -188,8 +215,29 @@ const ProductCategory = () => {
         </Link>
       </div>
 
+      {/* PDF Preview */}
+      {pdfUrl && (
+        <section className="pb-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-slate-50 rounded-3xl overflow-hidden shadow-lg">
+              <div className="px-6 py-6 border-b border-slate-200">
+                <h2 className="text-2xl font-bold text-slate-900">{category.name}</h2>
+                {/* <p className="text-sm text-gray-500 mt-1">This PDF opens automatically for the selected product category.</p> */}
+              </div>
+              <div className="h-[80vh]">
+                <iframe
+                  src={pdfUrl}
+                  title={`${category.name} PDF`}
+                  className="w-full h-full"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Products Grid */}
-      <section className="pb-20">
+      {/* <section className="pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {category.products.map((product) => (
@@ -216,7 +264,7 @@ const ProductCategory = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

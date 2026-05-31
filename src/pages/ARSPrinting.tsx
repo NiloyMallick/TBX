@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Printer, Package, CheckCircle, Users, Award, Globe, Mail, Phone, MapPin } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
+import { Link as ScrollLink } from 'react-scroll';
 import riyadHossen from '../assets/riyad-hossen.jpeg';
 import arifHossen from '../assets/arif-hossen.jpeg';
 
@@ -148,7 +149,7 @@ const ARSPrinting = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex space-x-8 py-4 min-w-max">
             {sections.map((section) => (
-              <Link
+              <ScrollLink
                 key={section.id}
                 to={section.id}
                 smooth={true}
@@ -157,7 +158,7 @@ const ARSPrinting = () => {
                 className="text-sm font-medium text-gray-600 hover:text-red-600 cursor-pointer whitespace-nowrap"
               >
                 {section.name}
-              </Link>
+              </ScrollLink>
             ))}
           </div>
         </div>
@@ -232,7 +233,7 @@ const ARSPrinting = () => {
           <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">Our Products</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {productCategories.map((category) => (
-              <Link key={category.id} to={`/ars-printing/${category.id}`} className="block">
+              <RouterLink key={category.id} to={`/ars-printing/${category.id}`} className="block">
                 <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 group border border-gray-200">
                   <div className="aspect-w-16 aspect-h-9 h-48 overflow-hidden relative">
                     <img
@@ -254,7 +255,7 @@ const ARSPrinting = () => {
                     </div>
                   </div>
                 </div>
-              </Link>
+              </RouterLink>
             ))}
           </div>
         </div>

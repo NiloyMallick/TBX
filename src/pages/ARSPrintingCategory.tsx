@@ -1,13 +1,33 @@
 import { ArrowLeft } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
 
+const pdfFiles = {
+  arsPrinting: new URL('../assets/woven.pdf', import.meta.url).href,
+};
+
+type ProductItem = {
+  id: number;
+  name: string;
+  description: string;
+  image: string;
+  price: string;
+};
+
+type ProductCategoryData = {
+  name: string;
+  description: string;
+  products: ProductItem[];
+  pdfUrl?: string;
+};
+
 const ARSPrintingCategory = () => {
   const { categoryId } = useParams();
 
-  const categoryData = {
+  const categoryData: Record<string, ProductCategoryData> = {
     paper: {
       name: 'Paper & Printing',
       description: 'High-quality paper products and printing materials.',
+      pdfUrl: pdfFiles.arsPrinting,
       products: [
         {
           id: 1,
@@ -35,6 +55,7 @@ const ARSPrintingCategory = () => {
     tape: {
       name: 'Tape & Cord',
       description: 'Specialized tapes and cords for various applications.',
+      pdfUrl: pdfFiles.arsPrinting,
       products: [
         {
           id: 1,
@@ -62,6 +83,7 @@ const ARSPrintingCategory = () => {
     button: {
       name: 'Button',
       description: 'Wide variety of buttons for garment decoration and function.',
+      pdfUrl: pdfFiles.arsPrinting,
       products: [
         {
           id: 1,
@@ -89,6 +111,7 @@ const ARSPrintingCategory = () => {
     label: {
       name: 'Label',
       description: 'Various types of labels for garment identification and branding.',
+      pdfUrl: pdfFiles.arsPrinting,
       products: [
         {
           id: 1,
@@ -116,6 +139,7 @@ const ARSPrintingCategory = () => {
     handicraft: {
       name: 'Handicraft',
       description: 'Artisanal handicraft items for garment decoration.',
+      pdfUrl: pdfFiles.arsPrinting,
       products: [
         {
           id: 1,
@@ -136,6 +160,7 @@ const ARSPrintingCategory = () => {
     others: {
       name: 'Others',
       description: 'Additional accessories and components for garments.',
+      pdfUrl: pdfFiles.arsPrinting,
       products: [
         {
           id: 1,
@@ -162,7 +187,8 @@ const ARSPrintingCategory = () => {
     }
   };
 
-  const category = categoryData[categoryId];
+  const category = categoryId ? categoryData[categoryId as keyof typeof categoryData] : undefined;
+  const pdfUrl = category?.pdfUrl;
 
   if (!category) {
     return (
@@ -194,32 +220,62 @@ const ARSPrintingCategory = () => {
         </Link>
       </div>
 
+      {pdfUrl && (
+        <section className="pb-16 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-slate-50 rounded-3xl overflow-hidden shadow-lg">
+              <div className="px-6 py-6 border-b border-slate-200">
+                <h2 className="text-2xl font-bold text-slate-900">Category PDF Preview</h2>
+                <p className="text-sm text-gray-500 mt-1">Open the PDF for the selected ARS Printing category.</p>
+              </div>
+              <div className="h-[80vh]">
+                <iframe
+                  src={pdfUrl}
+                  title={`${category.name} PDF`}
+                  className="w-full h-full"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Products Grid */}
       <section className="pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {category.products.map((product) => (
-              <div key={product.id} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 group">
-                <div className="aspect-w-16 aspect-h-9 h-64 overflow-hidden relative">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">{product.name}</h3>
-                  <p className="text-gray-600 mb-4 text-sm">{product.description}</p>
-                  <div className="flex justify-between items-center">
-                    <span className="text-lg font-semibold text-slate-900">{product.price}</span>
-                    <button className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors">
-                      Contact Us
-                    </button>
+            {category.products.map((product) => {
+              const card = (
+                <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 group">
+                  <div className="aspect-w-16 aspect-h-9 h-64 overflow-hidden relative">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-slate-900 mb-2">{product.name}</h3>
+                    <p className="text-gray-600 mb-4 text-sm">{product.description}</p>
+                    <div className="flex justify-between items-center">
+                      <span className="text-lg font-semibold text-slate-900">{product.price}</span>
+                      <button className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors">
+                        Contact Us
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+
+              return pdfUrl ? (
+                <a key={product.id} href={pdfUrl} target="_blank" rel="noreferrer" className="block">
+                  {card}
+                </a>
+              ) : (
+                <div key={product.id}>{card}</div>
+              );
+            })}
           </div>
         </div>
       </section>

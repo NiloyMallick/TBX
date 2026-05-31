@@ -9,33 +9,25 @@ const TBXProducts = () => {
       description: 'Comprehensive range of knitted apparel for all ages.',
       image: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&q=80&w=800',
       items: [
-        'Blank T-shirts', 'Custom Print T-shirt', 'Private Label T-shirts', 'Promo T-shirts',
-        'Kids T-shirts', 'Polo Shirt', 'Tank Tops', 'Hoodies', 'Sportswear', 'Leggings',
-        'Kids Wear', 'Knitwear'
+        
       ]
     },
     {
       id: 'woven',
-      name: 'Woven Garments',
+      name: 'Woven And Outerwear Garments',
       description: 'High-quality woven clothing for casual and formal wear.',
       image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&q=80&w=800',
       items: [
-        'Women’s Clothing', 'Jeans Pants', 'Chino Pants', 'Custom Shirts', 'Custom Jacket',
-        'Cargo Shorts', 'Cargo Trouser', 'Swim Shorts', 'Jackets', 'Fleece Jacket',
-        'padded jackets', 'Fake down jackets', 'Down jackets', 'Ski jackets', 'Rain coats',
-        'Bomber jackets', 'Seam Sealling jackets', 'bikers Jackets'
+        
       ]
     },
     {
-      id: 'workwear',
-      name: 'Workwear & Uniform',
+      id: 'denim_and_non_denim',
+      name: 'Denim And Non-Denim',
       description: 'Durable and functional workwear for various industries.',
       image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&q=80&w=800',
       items: [
-        'Camouflage T-shirts', 'Camouflage Uniforms', 'Medical Scrubs', 'Coveralls',
-        'Businesswear Polo Shirt', 'Workwear Manufacturer', 'Hi-vis workwear Manufacturer',
-        'Uniforms Manufacturer', 'Kitchen & Restaurant Aprons', 'School Uniform Manufacturer',
-        'Medical Scrubs & Uniforms'
+        
       ]
     },
     {
@@ -44,16 +36,16 @@ const TBXProducts = () => {
       description: 'Customized apparel for brand promotion and events.',
       image: 'https://images.unsplash.com/photo-1529720317453-c8da503f2051?auto=format&fit=crop&q=80&w=800',
       items: [
-        'Customised T-shirts', 'Customized Polo Shirts', 'Customized Hoodies',
-        'Customized Sportswear', 'Customized Fleece Jackets', 'Customised Windbreakers'
+        
       ]
     },
     {
-      id: 'underwear',
-      name: 'Underwear',
-      description: 'Comfortable and high-quality underwear and sleepwear.',
-      image: 'https://images.unsplash.com/photo-1518459031867-a89b944bffe4?auto=format&fit=crop&q=80&w=800',
-      items: ['Underwear Manufacturer', 'Sleepwear Manufacturer']
+      id: 'caps_and_hats',
+      name: 'Caps And Hats',
+      description: 'Stylish and functional headwear for all occasions.',
+      // image: 'https://images.unsplash.com/photo-1518459031867-a89b944bffe4?auto=format&fit=crop&q=80&w=800',
+      image: 'https://images.unsplash.com/photo-1622445275576-721325763afe?q=80&w=687&auto=format&fit=crop&q=80&w=800',
+      items: []
     }
   ];
 
