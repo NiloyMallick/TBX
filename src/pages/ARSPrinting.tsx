@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Printer, Package, CheckCircle, Users, Award, Globe, Mail, Phone, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ProductsGrid } from '../components/ProductsGrid';
 import riyadHossen from '../assets/riyad-hossen.jpeg';
 import arifHossen from '../assets/arif-hossen.jpeg';
 
@@ -79,51 +80,6 @@ const ARSPrinting = () => {
     { id: 'clients', name: 'Clients' },
     { id: 'certifications', name: 'Certifications' },
     { id: 'contact', name: 'Contact' },
-  ];
-
-  const productCategories = [
-    {
-      id: 'paper',
-      name: 'Paper & Printing',
-      description: 'High-quality paper products and printing materials',
-      image: 'https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&q=80&w=600',
-      items: ['Adhesive Sticker', 'Heat Seal', 'Hang Tag']
-    },
-    {
-      id: 'tape',
-      name: 'Tape & Cord',
-      description: 'Specialized tapes and cords for various applications',
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&q=80&w=600',
-      items: ['Twill Tape', 'Bungee Cord', 'Weaving Belt', 'Ribbed Tape', 'Drawstring']
-    },
-    {
-      id: 'button',
-      name: 'Button',
-      description: 'Wide variety of buttons for garment decoration and function',
-      image: 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&q=80&w=600',
-      items: ['Horn Button', 'Wooden Button', 'Shell Button', 'Fabric Button', 'Metal Button', 'Rivet Button', 'Coconut Button', 'Shank Button']
-    },
-    {
-      id: 'label',
-      name: 'Label',
-      description: 'Various types of labels for garment identification and branding',
-      image: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?auto=format&fit=crop&q=80&w=600',
-      items: ['Screen Print Label', 'Paper Label', 'Woven Label', 'Satin Label']
-    },
-    {
-      id: 'handicraft',
-      name: 'Handicraft',
-      description: 'Artisanal handicraft items for garment decoration',
-      image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&q=80&w=600',
-      items: ['Tassel', 'Bow', 'Flowers', 'Pompom']
-    },
-    {
-      id: 'others',
-      name: 'Others',
-      description: 'Additional accessories and components for garments',
-      image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=80&w=600',
-      items: ['Lock String', 'Metal Badge', 'Rubber Badge', 'Buckle', 'D Ring', 'Eyelets', 'Gromet', 'Leather Badge', 'Stopper']
-    }
   ];
 
   return (
@@ -230,33 +186,7 @@ const ARSPrinting = () => {
       <section className="py-16 bg-white" id="products">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">Our Products</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {productCategories.map((category) => (
-              <Link key={category.id} to={`/ars-printing/${category.id}`} className="block">
-                <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 group border border-gray-200">
-                  <div className="aspect-w-16 aspect-h-9 h-48 overflow-hidden relative">
-                    <img
-                      src={category.image}
-                      alt={category.name}
-                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-slate-900 mb-2">{category.name}</h3>
-                    <p className="text-gray-600 mb-4 text-sm">{category.description}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {category.items.map((item) => (
-                        <span key={item} className="inline-block bg-slate-100 text-slate-700 text-xs px-2 py-1 rounded-full">
-                          {item}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
+          <ProductsGrid company="ARS Acc & Paintings" />
         </div>
       </section>
 

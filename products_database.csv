@@ -1,0 +1,11 @@
+Company,Category,Product_Name,Description,Image_Link,Image_Link_2,Image_Link_3,SKU,Price,Status
+TBX-Sourcing,Electronics,Product Name 1,High quality electronic component with international standards,/images/tbx/product1.jpg,/images/tbx/product1-2.jpg,/images/tbx/product1-3.jpg,TBX-001,100.00,Active
+TBX-Sourcing,Electronics,Product Name 2,Professional grade electronic assembly,/images/tbx/product2.jpg,/images/tbx/product2-2.jpg,,TBX-002,150.00,Active
+TBX-Sourcing,Textiles,Product Name 3,Premium textile material for industrial use,/images/tbx/product3.jpg,/images/tbx/product3-2.jpg,,TBX-003,50.00,Active
+ARS Acc & Paintings,Paintings,Artwork 1,Beautiful hand-painted artwork with traditional techniques,/images/ars/painting1.jpg,/images/ars/painting1-detail.jpg,,ARS-001,500.00,Active
+ARS Acc & Paintings,Paintings,Artwork 2,Contemporary abstract painting,/images/ars/painting2.jpg,,,,ARS-002,750.00,Active
+ARS Acc & Paintings,Accessories,Accessory 1,Decorative accessory handcrafted,/images/ars/acc1.jpg,/images/ars/acc1-alt.jpg,,ARS-ACC-001,200.00,Active
+A&A Fashion and Fabrics,Fabrics,Fabric Type 1,Premium quality cotton fabric with unique pattern,/images/aa/fabric1.jpg,/images/aa/fabric1-swatch.jpg,,AA-FAB-001,25.00,Active
+A&A Fashion and Fabrics,Fabrics,Fabric Type 2,Silk blend fabric with elegant finish,/images/aa/fabric2.jpg,/images/aa/fabric2-pattern.jpg,,AA-FAB-002,35.00,Active
+A&A Fashion and Fabrics,Fashion,Clothing Item 1,Stylish apparel made from premium materials,/images/aa/fashion1.jpg,/images/aa/fashion1-detail.jpg,,AA-FASH-001,80.00,Active
+A&A Fashion and Fabrics,Fashion,Clothing Item 2,Trendy design with comfortable fit,/images/aa/fashion2.jpg,,,,AA-FASH-002,95.00,Active
