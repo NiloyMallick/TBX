@@ -139,8 +139,8 @@ const ARSPrinting = () => {
       >
         <div className="absolute inset-0 bg-black/60"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h1 className="text-4xl font-bold mb-4">A&A Fashion & Fabrics</h1>
-          <p className="text-xl text-gray-300">Leading 100% Export-Oriented Knit Fabrics Manufacturer</p>
+          <h1 className="text-4xl font-bold mb-4">ARS Printing Accessories</h1>
+          {/* <p className="text-xl text-gray-300">Leading 100% Export-Oriented Knit Fabrics Manufacturer</p> */}
         </div>
       </section>
 

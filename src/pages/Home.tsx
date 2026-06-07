@@ -5,6 +5,8 @@ import joySarker from '../assets/joy-sarker.png';
 import sadekuzzaman from '../assets/sadekuzzaman.jpeg';
 import arifHossen from '../assets/arif-hossen.jpeg';
 import riyadHossen from '../assets/riyad-hossen.jpeg';
+import tbxHomeVideo from '../assets/videos/tbx_home.mp4';
+
 import slide1 from '../assets/slide-hoaver1.jpeg';
 // Import client logos
 import logo1 from '../assets/logos/1.png';
@@ -105,66 +107,20 @@ const Home = () => {
   return (
     <div className="flex flex-col">
       {/* Hero Slider */}
-      <section className="relative h-[600px] bg-slate-900 text-white overflow-hidden group">
-        {slides.map((slide, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              index === currentSlide ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            <div className="absolute inset-0 bg-black/50 z-10" />
-            <img 
-              src={slide.image} 
-              alt={slide.title} 
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 z-20 flex items-center justify-center">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight animate-fade-in-up">
-                  {slide.title}
-                </h1>
-                <p className="text-xl md:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto animate-fade-in-up delay-200">
-                  {slide.subtitle}
-                </p>
-                <div className="flex justify-center gap-4 animate-fade-in-up delay-300">
-                  <Link to="/tbx-sourcing" className="bg-red-600 text-white px-8 py-3 rounded-md font-medium hover:bg-red-700 transition-colors flex items-center">
-                    Explore Our Services <ArrowRight className="ml-2 h-5 w-5" />
-                  </Link>
-                  <Link to="/contact" className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-md font-medium hover:bg-white hover:text-slate-900 transition-colors">
-                    Contact Us
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-        
-        {/* Slider Controls */}
-        <button 
-          onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors opacity-0 group-hover:opacity-100"
+      <section className="relative h-[600px] bg-slate-900 text-white overflow-hidden group flex items-center justify-center">
+        <video
+          className="absolute inset-0 w-full h-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
         >
-          <ChevronLeft className="h-8 w-8" />
-        </button>
-        <button 
-          onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors opacity-0 group-hover:opacity-100"
-        >
-          <ChevronRight className="h-8 w-8" />
-        </button>
-        
-        {/* Dots */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex space-x-2">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-colors ${
-                index === currentSlide ? 'bg-red-600' : 'bg-white/50 hover:bg-white'
-              }`}
-            />
-          ))}
+          <source src={tbxHomeVideo} type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          {/* <h1 className="text-4xl font-bold mb-4">TBX Group Ltd.</h1> */}
+          {/* <p className="text-xl text-gray-300">A Story Built on the Factory Floor</p> */}
         </div>
       </section>
 

@@ -4,6 +4,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
 import sadekuzzaman from '../assets/sadekuzzaman.jpeg';
 import soniaAfrin from '../assets/sonia-afrin.jpeg';
+import aaHomeVideo from '../assets/videos/a&a_home.mp4';
 
 const AAFashion = () => {
   const slides = [
@@ -35,16 +36,19 @@ const AAFashion = () => {
   return (
     <div className="flex flex-col">
       {/* Hero */}
-      <section 
-        className="bg-slate-900 text-white py-20 relative bg-cover bg-center bg-no-repeat transition-opacity duration-1000"
-        style={{
-          backgroundImage: `url(${slides[currentSlide]})`,
-          backgroundAttachment: 'fixed'
-        }}
-      >
+      <section className="relative h-[600px] bg-slate-900 text-white overflow-hidden group flex items-center justify-center">
+        <video
+          className="absolute inset-0 w-full h-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
+          <source src={aaHomeVideo} type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-black/60"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h1 className="text-4xl font-bold mb-4">A&A Fashion & Fabrics</h1>
+          <h1 className="text-4xl font-bold mb-4">A & A Fashion & Fabrics</h1>
           <p className="text-xl text-gray-300">Leading 100% Export-Oriented Knit Fabrics Manufacturer</p>
         </div>
       </section>

@@ -31,7 +31,7 @@ const Navbar = () => {
       description: 'Comprehensive apparel sourcing solutions'
     },
     {
-      name: 'ARS ACC. & Printing',
+      name: 'ARS Printing Accessories',
       path: '/ars-printing',
       image: arsImage,
       description: 'Premium trims and printing accessories'
