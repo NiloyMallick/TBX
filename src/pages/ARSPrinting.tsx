@@ -86,44 +86,44 @@ const ARSPrinting = () => {
     {
       id: 'paper',
       name: 'Paper & Printing',
-      description: 'High-quality paper products and printing materials',
+      description: 'High-quality paper printing products and packaging materials',
       image: 'https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&q=80&w=600',
-      items: ['Adhesive Sticker', 'Heat Seal', 'Hang Tag']
+      items: ['Sticker', 'Heat Seal', 'Hang Tag']
     },
     {
       id: 'tape',
       name: 'Tape & Cord',
-      description: 'Specialized tapes and cords for various applications',
+      description: 'Specialized tapes and cords for apparel and accessories',
       image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&q=80&w=600',
-      items: ['Twill Tape', 'Bungee Cord', 'Weaving Belt', 'Ribbed Tape', 'Drawstring']
+      items: ['Twile Tape', 'Ribbed Tape', 'Weaving Belt', 'Bunjee Cord', 'Drawstring']
     },
     {
       id: 'button',
       name: 'Button',
       description: 'Wide variety of buttons for garment decoration and function',
       image: 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&q=80&w=600',
-      items: ['Horn Button', 'Wooden Button', 'Shell Button', 'Fabric Button', 'Metal Button', 'Rivet Button', 'Coconut Button', 'Shank Button']
+      items: ['Coconut Button', 'Metal Button', 'Shank Button', 'Shell Button', 'Wooden Button']
     },
     {
       id: 'label',
       name: 'Label',
       description: 'Various types of labels for garment identification and branding',
       image: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?auto=format&fit=crop&q=80&w=600',
-      items: ['Screen Print Label', 'Paper Label', 'Woven Label', 'Satin Label']
+      items: ['Paper Label', 'Screen Print Label', 'Woven Label']
     },
     {
       id: 'handicraft',
       name: 'Handicraft',
       description: 'Artisanal handicraft items for garment decoration',
       image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&q=80&w=600',
-      items: ['Tassel', 'Bow', 'Flowers', 'Pompom']
+      items: ['Bow', 'Tassel', 'Pompom']
     },
     {
       id: 'others',
       name: 'Others',
       description: 'Additional accessories and components for garments',
       image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=80&w=600',
-      items: ['Lock String', 'Metal Badge', 'Rubber Badge', 'Buckle', 'D Ring', 'Eyelets', 'Gromet', 'Leather Badge', 'Stopper']
+      items: ['Buckle', 'D Ring', 'Eyelets', 'Gromet', 'Leather Badge', 'Lock String', 'Rubber Badge', 'Stopper']
     }
   ];
 
