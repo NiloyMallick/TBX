@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Printer, Package, CheckCircle, Users, Award, Globe, Mail, Phone, MapPin } from 'lucide-react';
-import { Link as RouterLink } from 'react-router-dom';
+import { CheckCircle, Mail, Phone, MapPin } from 'lucide-react';
 import { Link as ScrollLink } from 'react-scroll';
 import riyadHossen from '../assets/riyad-hossen.jpeg';
 import arifHossen from '../assets/arif-hossen.jpeg';
@@ -16,21 +15,6 @@ import cert1 from '../assets/certifications/1.jpg';
 import cert2 from '../assets/certifications/2.jpg';
 import cert3 from '../assets/certifications/3.jpg';
 import cert4 from '../assets/certifications/4.jpg';
-
-// Using extracted logos for clients and certifications
-const clientLogos = [
-  logo1,
-  logo2,
-  logo3,
-  logo4,
-];
-
-const certLogos = [
-  cert1,
-  cert2,
-  cert3,
-  cert4,
-];
 
 const clientSlides = [
   [logo1, logo2, logo3, logo4],
@@ -82,50 +66,41 @@ const ARSPrinting = () => {
     { id: 'contact', name: 'Contact' },
   ];
 
-  const productCategories = [
-    {
-      id: 'paper',
-      name: 'Paper & Printing',
-      description: 'High-quality paper printing products and packaging materials',
-      image: 'https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&q=80&w=600',
-      items: ['Sticker', 'Heat Seal', 'Hang Tag']
-    },
-    {
-      id: 'tape',
-      name: 'Tape & Cord',
-      description: 'Specialized tapes and cords for apparel and accessories',
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&q=80&w=600',
-      items: ['Twile Tape', 'Ribbed Tape', 'Weaving Belt', 'Bunjee Cord', 'Drawstring']
-    },
-    {
-      id: 'button',
-      name: 'Button',
-      description: 'Wide variety of buttons for garment decoration and function',
-      image: 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&q=80&w=600',
-      items: ['Coconut Button', 'Metal Button', 'Shank Button', 'Shell Button', 'Wooden Button']
-    },
-    {
-      id: 'label',
-      name: 'Label',
-      description: 'Various types of labels for garment identification and branding',
-      image: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?auto=format&fit=crop&q=80&w=600',
-      items: ['Paper Label', 'Screen Print Label', 'Woven Label']
-    },
-    {
-      id: 'handicraft',
-      name: 'Handicraft',
-      description: 'Artisanal handicraft items for garment decoration',
-      image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&q=80&w=600',
-      items: ['Bow', 'Tassel', 'Pompom']
-    },
-    {
-      id: 'others',
-      name: 'Others',
-      description: 'Additional accessories and components for garments',
-      image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=80&w=600',
-      items: ['Buckle', 'D Ring', 'Eyelets', 'Gromet', 'Leather Badge', 'Lock String', 'Rubber Badge', 'Stopper']
-    }
+  const productFiles = [
+    'Bow.pdf',
+    'Buckle.pdf',
+    'Bunjee Cord.pdf',
+    'Coconut Button.pdf',
+    'D Ring.pdf',
+    'Drawstring.pdf',
+    'Eyelets.pdf',
+    'Gromet.pdf',
+    'Hang tag.pdf',
+    'Heat Seal.pdf',
+    'Leather Badge.pdf',
+    'Lock String.pdf',
+    'Metal Button.pdf',
+    'Paper label.pdf',
+    'Pompom.pdf',
+    'Ribbed Tape.pdf',
+    'Rubber Badge (1).pdf',
+    'Screen Print label.pdf',
+    'Shank Button.pdf',
+    'Shell Button.pdf',
+    'Sticker.pdf',
+    'Stopper.pdf',
+    'Tassel.pdf',
+    'Twile Tape.pdf',
+    'Weaving Belt.pdf',
+    'Wooden Button.pdf',
+    'woven label.pdf'
   ];
+
+  const products = productFiles.map((filename, index) => ({
+    id: index + 1,
+    name: filename.replace(/\.pdf$/i, ''),
+    link: new URL(`../assets/ars_products/${filename}`, import.meta.url).href,
+  }));
 
   return (
     <div className="flex flex-col">
@@ -231,31 +206,19 @@ const ARSPrinting = () => {
       <section className="py-16 bg-white" id="products">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">Our Products</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {productCategories.map((category) => (
-              <RouterLink key={category.id} to={`/ars-printing/${category.id}`} className="block">
-                <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 group border border-gray-200">
-                  <div className="aspect-w-16 aspect-h-9 h-48 overflow-hidden relative">
-                    <img
-                      src={category.image}
-                      alt={category.name}
-                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-slate-900 mb-2">{category.name}</h3>
-                    <p className="text-gray-600 mb-4 text-sm">{category.description}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {category.items.map((item) => (
-                        <span key={item} className="inline-block bg-slate-100 text-slate-700 text-xs px-2 py-1 rounded-full">
-                          {item}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {products.map((product) => (
+              <div key={product.id} className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 group border border-gray-200">
+                <div className="p-6 border-b">
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">{product.name}</h3>
+                  <a href={product.link} target="_blank" rel="noreferrer" className="text-sm text-red-600 hover:text-red-700">
+                    View PDF
+                  </a>
                 </div>
-              </RouterLink>
+                <div className="h-64 overflow-hidden">
+                  <iframe src={product.link} title={product.name} className="w-full h-full" />
+                </div>
+              </div>
             ))}
           </div>
         </div>
